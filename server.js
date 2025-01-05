@@ -22,11 +22,11 @@ if (!JWT_SECRET || !MONGO_URI) {
 
 // MongoDB connection
 mongoose
-    .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(MONGO_URI)
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((err) => {
         console.error("Error connecting to MongoDB Atlas:", err);
-        process.exit(1);
+        process.exit(1); // Exit the app on connection failure
     });
 
 // User model
