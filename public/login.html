@@ -34,7 +34,7 @@
             background-color: rgba(255, 255, 255, 0.9);
             color: #333;
             padding: 30px;
-            border-radius: 25px; /* Rounded edges */
+            border-radius: 25px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             width: 380px;
             transform: translateY(-20px);
@@ -124,6 +124,9 @@
 </div>
 
 <script>
+    // Base URL for API requests
+    const BASE_URL = window.location.origin;
+
     // Login user
     document.getElementById("loginForm").addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -132,7 +135,7 @@
         const password = document.getElementById("password").value;
 
         try {
-            const response = await fetch("http://localhost:5005/login", {
+            const response = await fetch(`${BASE_URL}/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
