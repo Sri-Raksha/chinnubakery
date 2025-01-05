@@ -36,7 +36,7 @@ const User = require("./models/User");
 
 // Serve the index.html file at the root
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/Public/index.html");
+    res.sendFile(__dirname + "/public/index.html");
 });
 
 // API Routes (Register and Login)
