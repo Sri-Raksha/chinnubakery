@@ -5,13 +5,10 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
-const path = require("path");
 
-// Initialize app and middleware
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, "public"))); // Serve frontend files
 
 // Environment variables
 const PORT = process.env.PORT || 5005;
@@ -25,27 +22,17 @@ if (!JWT_SECRET || !MONGO_URI) {
 
 // MongoDB connection
 mongoose
-    .connect(MONGO_URI)
+    .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((err) => {
         console.error("Error connecting to MongoDB Atlas:", err);
         process.exit(1);
     });
 
-// Import User model
+// User model
 const User = require("./models/User");
 
-// Serve the index.html file at the root
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-// Catch-all route to serve the frontend for undefined routes
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-// API Routes (Register and Login)
+// API Routes
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     if (!name || !email || !password) {
@@ -84,6 +71,14 @@ app.post("/login", async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: "Error logging in.", error });
     }
+});
+
+// Serve static files
+app.use(express.static("public"));
+
+// Fallback route for frontend
+app.get("*", (req, res) => {
+    res.sendFile(__dirname + "/public/index.html");
 });
 
 // Start the server
