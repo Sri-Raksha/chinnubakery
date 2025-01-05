@@ -53,35 +53,39 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    // Validate request
+    if (!email || !password) {
+        return res.status(400).json({ message: "All fields are required." });
+    }
+
     try {
-        const { email, password } = req.body;
-
-        // Check if fields are provided
-        if (!email || !password) {
-            return res.status(400).json({ message: "All fields are required." });
-        }
-
-        // Find user in the database
+        // Check if the user exists
         const user = await User.findOne({ email });
         if (!user) {
+            console.error("User not found:", email);
             return res.status(400).json({ message: "Invalid email or password." });
         }
 
-        // Compare passwords
+        // Check if the password matches
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
+            console.error("Password mismatch for user:", email);
             return res.status(400).json({ message: "Invalid email or password." });
         }
 
         // Generate JWT token
         const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
 
-        return res.status(200).json({ message: "Login successful", token });
+        // Send response
+        res.status(200).json({ message: "Login successful", token });
     } catch (error) {
-        console.error("Login Error:", error); // Log error details
+        console.error("Error during login:", error); // Log the error for debugging
         res.status(500).json({ message: "Error logging in.", error });
     }
 });
+
 
 
 // Serve static files
