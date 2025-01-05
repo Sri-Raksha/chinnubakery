@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Chinnu's Bakery</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Spinner Start -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" role="status"></div>
+</div>
+<!-- Spinner End -->
+
+
+<!-- Topbar Start -->
+<div class="container-fluid top-bar bg-dark text-light px-0 wow fadeIn" data-wow-delay="0.1s">
+    <div class="row gx-0 align-items-center d-none d-lg-flex">
+        <div class="col-lg-6 px-5 text-start">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a class="small" href="#" style="color: #ffb6c1;">Home</a></li>
+                <li class="breadcrumb-item"><a class="small" href="#" style="color: #ffb6c1;">Career</a></li>
+                <li class="breadcrumb-item"><a class="small" href="#" style="color: #ffb6c1;">Terms</a></li>
+                <li class="breadcrumb-item"><a class="small" href="#" style="color: #ffb6c1;">Privacy</a></li>
+            </ol>
+        </div>
+        <div class="col-lg-6 px-5 text-end">
+            <small>Follow us:</small>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn-lg-square text-light border-end rounded-0" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="btn-lg-square text-light border-end rounded-0" href=""><i class="fab fa-twitter"></i></a>
+                <a class="btn-lg-square text-light border-end rounded-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn-lg-square text-light pe-0" href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+    <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+        <h1 class="text-light m-0" style="color: #ffb6c1;">Chinnu's Bakery</h1>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav mx-auto p-4 p-lg-0">
+            <a href="index.html" class="nav-item nav-link active" style="color: #ffb6c1;">Home</a>
+            <a href="about.html" class="nav-item nav-link" style="color: #ffb6c1;">About</a>
+            <a href="service.html" class="nav-item nav-link" style="color: #ffb6c1;">Services</a>
+            <a href="product.html" class="nav-item nav-link" style="color: #ffb6c1;">Products</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="color: #ffb6c1;">Pages</a>
+                <div class="dropdown-menu m-0">
+                    <a href="team.html" class="dropdown-item" style="color: hsl(330, 51%, 34%);">Our Team</a>
+                    <a href="testimonial.html" class="dropdown-item" style="color: hsl(330, 51%, 34%)">Testimonial</a>
+                    <a href="404.html" class="dropdown-item" style="color: hsl(330, 51%, 34%)">404 Page</a>
+                </div>
+            </div>
+            <a href="contact.html" class="nav-item nav-link" style="color: #ffb6c1;">Contact</a>
+        </div>
+        <div class="d-none d-lg-flex">
+            <div class="flex-shrink-0 btn-lg-square border border-light rounded-circle">
+                <i class="fa fa-phone fa-flip-horizontal text-light"></i>
+            </div>
+            <div class="ps-3">
+                <small class="text-light mb-0" style="color: #ffb6c1;">Call Us</small>
+                <p class="text-light fs-5 mb-0" style="color: #ffb6c1;">+012 345 6789</p>
+            </div>
+            <div class="ms-3">
+                <a href="cart.html" class="btn btn-primary">Cart</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
+
+
+  <!-- Carousel Start -->
+<div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="img/carousel-1.png" alt="">
+            <div class="owl-carousel-inner">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-lg-8">
+                            <h1 class="display-1 text-light mb-4 animated slideInDown">Welcome to Chinnu's Bakery</h1>
+                            <a href="login.html" class="btn btn-primary rounded-pill py-3 px-5" style="background-color: hsl(330, 51%, 34%); border-color: hsl(330, 51%, 34%)">Login for More Sweetness</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="img/carousel-2.jpg" alt="">
+            <div class="owl-carousel-inner">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-lg-8">
+                            <h1 class="display-1 text-light mb-4 animated slideInDown">We Bake With Passion</h1>
+                            <a href="login.html" class="btn btn-primary rounded-pill py-3 px-5" style="background-color: #ff5c8d; border-color: #ff5c8d;">Login for More Sweetness</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+<!-- Facts Start -->
+<div class="container-xxl py-6">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="fact-item bg-light rounded text-center h-100 p-5" style="background-color: #f8e1e6;">
+                    <i class="fa fa-certificate fa-4x" style="color: #ffb6c1;"></i>
+                    <p class="mb-2" style="color:  hsl(330, 51%, 34%);">Years Experience</p>
+                    <h1 class="display-5 mb-0" data-toggle="counter-up" style="color: #ff5c8d;">3</h1>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                <div class="fact-item bg-light rounded text-center h-100 p-5" style="background-color: #f0d3f1;">
+                    <i class="fa fa-users fa-4x" style="color: #ffb6c1;"></i>
+                    <p class="mb-2" style="color: hsl(330, 51%, 34%);">Skilled Professionals</p>
+                    <h1 class="display-5 mb-0" data-toggle="counter-up" style="color: #ff5c8d;">10</h1>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="fact-item bg-light rounded text-center h-100 p-5" style="background-color: #ffe6f7;">
+                    <i class="fa fa-bread-slice fa-4x" style="color: #ffb6c1;"></i>
+                    <p class="mb-2" style="color:  hsl(330, 51%, 34%);">Total Products</p>
+                    <h1 class="display-5 mb-0" data-toggle="counter-up" style="color: #ff5c8d;">15</h1>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.7s">
+                <div class="fact-item bg-light rounded text-center h-100 p-5" style="background-color: #fff1f5;">
+                    <i class="fa fa-cart-plus fa-4x" style="color: #ffb6c1;"></i>
+                    <p class="mb-2" style="color:  hsl(330, 51%, 34%);">Order Everyday</p>
+                    <h1 class="display-5 mb-0" data-toggle="counter-up" style="color: #ff5c8d;">90</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Facts End -->
+
+
+ <!-- About Start -->
+<div class="container-xxl py-6">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row img-twice position-relative h-100">
+                    <div class="col-6">
+                        <img class="img-fluid rounded" src="img/about-1.jpg" alt="Bakery Interior" style="border: 3px solid #ffb6c1;">
+                    </div>
+                    <div class="col-6 align-self-end">
+                        <img class="img-fluid rounded" src="img/about-2.jpg" alt="Freshly Baked Goods" style="border: 3px solid #ffb6c1;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="h-100">
+                    <h1 class="display-6 mb-4" style="color: hsl(330, 51%, 34%);">We Bake Every Item From The Core Of Our Hearts</h1>
+                    <p style="color: #ff8b9e;">At Chinnu's Bakery, we take pride in creating every baked good with love and care. Each item is made from the finest ingredients, ensuring the highest quality and taste in every bite.</p>
+                    <p style="color: #ff8b9e;">Whether you're ordering for a special occasion or just craving something sweet, we provide custom cakes, pastries, and treats to make your moments even more special. From our kitchen to your table, our passion for baking is at the heart of everything we do.</p>
+                    <div class="row g-2 mb-4">
+                        <div class="col-sm-6">
+                            <i class="fa fa-check" style="color: hsl(330, 51%, 34%) !important;"></i> Premium Quality Products
+                        </div>
+                        <div class="col-sm-6">
+                            <i class="fa fa-check" style="color: hsl(330, 51%, 34%) !important;"></i> Customizable Creations
+                        </div>
+                        <div class="col-sm-6">
+                            <i class="fa fa-check" style="color: hsl(330, 51%, 34%) !important;"></i> Convenient Online Orders
+                        </div>
+                        <div class="col-sm-6">
+                            <i class="fa fa-check" style="color: hsl(330, 51%, 34%) !important;"></i> Fast and Reliable Home Delivery
+                        </div>
+                    </div>
+                    <a class="btn btn-primary rounded-pill py-3 px-5" href="" style="background-color: #ff5c8d; border-color: #ff5c8d;">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+
+<!-- Product Start -->
+<div class="container-xxl bg-light my-6 py-6 pt-0">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-6 mb-4" style="color: hsl(330, 51%, 34%);">Explore The Categories Of Our Bakery Products</h1>
+        </div>
+        <div class="row g-4">
+            <!-- Cake Product -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                    <div class="text-center p-4">
+                        <div class="d-inline-block border border-pink rounded-pill px-3 mb-3" style="border-color: #ff5c8d;">₹800 - ₹4500</div>
+                        <h3 class="mb-3" style="color: hsl(330, 51%, 34%);">Cake</h3>
+                        <span style="color: #ff8b9e;">Delicious cakes for every occasion, from birthdays to weddings. Freshly baked with love and care.</span>
+                    </div>
+                    <div class="position-relative mt-auto">
+                        <img class="img-fluid" src="img/product-1.jpg" alt="">
+                        <div class="product-overlay">
+                            <!-- Modal Trigger Button for Cake -->
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle" data-bs-toggle="modal" data-bs-target="#productModal" data-bs-category="cake">
+                                <i class="fa fa-eye text-pink" style="color: #ff5c8d;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bread Product -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                    <div class="text-center p-4">
+                        <div class="d-inline-block border border-pink rounded-pill px-3 mb-3" style="border-color: #ff5c8d;">₹100 - ₹900</div>
+                        <h3 class="mb-3" style="color: hsl(330, 51%, 34%);">Bread</h3>
+                        <span style="color: #ff8b9e;">Freshly baked bread daily. Soft, warm, and perfect for breakfast or any meal.</span>
+                    </div>
+                    <div class="position-relative mt-auto">
+                        <img class="img-fluid" src="img/product-2.jpg" alt="">
+                        <div class="product-overlay">
+                            <!-- Modal Trigger Button for Bread -->
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle" data-bs-toggle="modal" data-bs-target="#productModal" data-bs-category="bread">
+                                <i class="fa fa-eye text-pink" style="color: #ff5c8d;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cookies Product -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                    <div class="text-center p-4">
+                        <div class="d-inline-block border border-pink rounded-pill px-3 mb-3" style="border-color: #ff5c8d;">₹300 - ₹1500</div>
+                        <h4 class="mb-3" style="color: hsl(330, 51%, 34%);">Cookies</h4>
+                        <span style="color: #ff8b9e;">Crunchy, sweet cookies made with premium ingredients. Perfect for a snack or gift.</span>
+                    </div>
+                    <div class="position-relative mt-auto">
+                        <img class="img-fluid" src="img/product-3.jpg" alt="">
+                        <div class="product-overlay">
+                            <!-- Modal Trigger Button for Cookies -->
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle" data-bs-toggle="modal" data-bs-target="#productModal" data-bs-category="cookies">
+                                <i class="fa fa-eye text-pink" style="color: #ff5c8d;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product End -->
+
+<!-- Modal (Carousel for Cake, Bread, Cookies Images) -->
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="carouselImages">
+                        <!-- Category Carousel Items will be dynamically injected here -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to Dynamically Update Carousel Images -->
+<script>
+    const modal = document.getElementById('productModal');
+    const carouselImages = document.getElementById('carouselImages');
+    const products = {
+        cake: [
+            'img/cake-11.jpg', 'img/cake-2.jpg', 'img/cake-3.jpg', 'img/cake-4.jpg'
+        ],
+        bread: [
+            'img/bread-1.jpg', 'img/bread-2.jpg', 'img/bread-3.jpg', 'img/bread-4.jpg'
+        ],
+        cookies: [
+            'img/cookie-1.jpg', 'img/cookie-2.jpg', 'img/cookie-3.jpg', 'img/cookie-4.jpg'
+        ]
+    };
+
+    // Listen for the modal to open and update the images
+    modal.addEventListener('show.bs.modal', (event) => {
+        const button = event.relatedTarget;
+        const category = button.getAttribute('data-bs-category');
+        const images = products[category];
+
+        // Clear existing images
+        carouselImages.innerHTML = '';
+
+        // Add new images based on category
+        images.forEach((image, index) => {
+            const activeClass = index === 0 ? 'active' : '';
+            const item = document.createElement('div');
+            item.classList.add('carousel-item', activeClass);
+            item.innerHTML = `<img src="${image}" class="d-block w-100" alt="${category} image">`;
+            carouselImages.appendChild(item);
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Service Start -->
+<div class="container-xxl py-6">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="display-6 mb-4" style="color: hsl(330, 51%, 34%);">What Do We Offer For You?</h1>
+                <p class="mb-5" style="color: #ff8b9e;">We provide a wide range of delicious and customized bakery products, crafted with the highest quality ingredients. Here's what you can expect from us:</p>
+                <div class="row gy-5 gx-4">
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="flex-shrink-0 me-3">
+                                <i class="fa fa-bread-slice" style="font-size: 24px; color: hsl(330, 51%, 34%);"></i>
+                            </div>
+                            <h5 class="mb-0" style="color: hsl(330, 51%, 34%);">Quality Products</h5>
+                        </div>
+                        <span style="color: #ff8b9e;">We ensure that every product we make is of the highest quality, with fresh ingredients and the best baking techniques.</span>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="flex-shrink-0 me-3">
+                                <i class="fa fa-birthday-cake" style="font-size: 24px; color: hsl(330, 51%, 34%);"></i>
+                            </div>
+                            <h5 class="mb-0" style="color: hsl(330, 51%, 34%);">Custom Products</h5>
+                        </div>
+                        <span style="color: #ff8b9e;">We offer custom-designed cakes and pastries for every occasion. Whether it's a birthday, wedding, or celebration, we make it special.</span>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="flex-shrink-0 me-3">
+                                <i class="fa fa-cart-plus" style="font-size: 24px; color: hsl(330, 51%, 34%);"></i>
+                            </div>
+                            <h5 class="mb-0" style="color: hsl(330, 51%, 34%);">Online Order</h5>
+                        </div>
+                        <span style="color: #ff8b9e;">Order your favorite products online with ease and have them delivered right to your doorstep.</span>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="flex-shrink-0 me-3">
+                                <i class="fa fa-truck" style="font-size: 24px; color: hsl(330, 51%, 34%);"></i>
+                            </div>
+                            <h5 class="mb-0" style="color: hsl(330, 51%, 34%);">Home Delivery</h5>
+                        </div>
+                        <span style="color: #ff8b9e;">We provide home delivery services so you can enjoy our delicious treats from the comfort of your home.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="row img-twice position-relative h-100">
+                    <div class="col-6">
+                        <img class="img-fluid rounded" src="img/service-1.jpg" alt="">
+                    </div>
+                    <div class="col-6 align-self-end">
+                        <img class="img-fluid rounded" src="img/service-2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+
+
+
+   <!-- Team Start -->
+<div class="container-xxl py-6">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-6 mb-4" style="color: hsl(330, 51%, 34%);">We're Super Professional At Our Skills</h1>
+        </div>
+        <div class="row g-4">
+            <!-- Team Member 1 (Chinnu) -->
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <img class="img-fluid" src="img/team-1.jpg" alt="Chinnu">
+                    <div class="team-text">
+                        <div class="team-title">
+                            <h5 style="color: hsl(330, 51%, 34%);">Chinnu</h5>
+                            <span style="color: #ff8b9e;">Creative Director</span>
+                        </div>
+                        <div class="team-social mt-3">
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-facebook-f" style="color: #ff5c8d;"></i></a>
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-twitter" style="color: #ff5c8d;"></i></a>
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-instagram" style="color: #ff5c8d;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 2 (Deevu) -->
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <img class="img-fluid" src="img/team-2.jpg" alt="Deevu">
+                    <div class="team-text">
+                        <div class="team-title">
+                            <h5 style="color: hsl(330, 51%, 34%);">Deevu</h5>
+                            <span style="color: #ff8b9e;">Lead Developer</span>
+                        </div>
+                        <div class="team-social mt-3">
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-facebook-f" style="color: #ff5c8d;"></i></a>
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-twitter" style="color: #ff5c8d;"></i></a>
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-instagram" style="color: #ff5c8d;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 3 (Raksha) -->
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <img class="img-fluid" src="img/team-3.jpg" alt="Raksha">
+                    <div class="team-text">
+                        <div class="team-title">
+                            <h5 style="color: hsl(330, 51%, 34%);">Raksha</h5>
+                            <span style="color: #ff8b9e;">Marketing Manager</span>
+                        </div>
+                        <div class="team-social mt-3">
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-facebook-f" style="color: #ff5c8d;"></i></a>
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-twitter" style="color: #ff5c8d;"></i></a>
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-instagram" style="color: #ff5c8d;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 4 (Saadi) -->
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <img class="img-fluid" src="img/team-4.jpg" alt="Saadi">
+                    <div class="team-text">
+                        <div class="team-title">
+                            <h5 style="color: hsl(330, 51%, 34%);">Saadi</h5>
+                            <span style="color: #ff8b9e;">Customer Support</span>
+                        </div>
+                        <div class="team-social mt-3">
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-facebook-f" style="color: #ff5c8d;"></i></a>
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-twitter" style="color: #ff5c8d;"></i></a>
+                            <a class="btn btn-light rounded-circle" href="" style="margin: 0 5px;"><i class="fab fa-instagram" style="color: #ff5c8d;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+
+<!-- Testimonial Start -->
+<div class="container-xxl bg-light my-6 py-6 pb-0">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-6 mb-4" style="color: hsl(330, 51%, 34%)!important;">More Than 20000+ Customers Trusted Us</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-item bg-transparent rounded p-4">
+                <div class="d-flex align-items-center mb-4">
+                    <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-1.jpg" alt="Client 1">
+                    <div class="ms-4">
+                        <h5 class="mb-1" style="color: hsl(330, 51%, 34%) !important;">Ananya Sharma</h5>
+                        <span style="color: #ff8b9e !important;">Product Manager</span>
+                    </div>
+                </div>
+                <p class="mb-0" style="color: #555 !important;">"I absolutely loved the creative designs and the attention to detail in each order. Their commitment to quality is unparalleled."</p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-item bg-transparent rounded p-4">
+                <div class="d-flex align-items-center mb-4">
+                    <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-2.jpg" alt="Client 2">
+                    <div class="ms-4">
+                        <h5 class="mb-1" style="color: hsl(330, 51%, 34%)!important;">Ravi Kumar</h5>
+                        <span style="color: #ff8b9e !important;">Business Owner</span>
+                    </div>
+                </div>
+                <p class="mb-0" style="color: #555 !important;">"The cakes and pastries from this bakery are simply divine! They always deliver on time and exceed expectations."</p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-item bg-transparent rounded p-4">
+                <div class="d-flex align-items-center mb-4">
+                    <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-3.jpg" alt="Client 3">
+                    <div class="ms-4">
+                        <h5 class="mb-1" style="color: hsl(330, 51%, 34%) !important;">Maya Patel</h5>
+                        <span style="color: #ff8b9e !important;">Event Planner</span>
+                    </div>
+                </div>
+                <p class="mb-0" style="color: #555 !important;">"Every event we organize with this bakery is a success. The cakes are always a showstopper and loved by everyone!"</p>
+            </div>
+            <!-- Testimonial 4 -->
+            <div class="testimonial-item bg-transparent rounded p-4">
+                <div class="d-flex align-items-center mb-4">
+                    <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-4.jpg" alt="Client 4">
+                    <div class="ms-4">
+                        <h5 class="mb-1" style="color: hsl(330, 51%, 34%) !important;">Priya Mehta</h5>
+                        <span style="color: #ff8b9e !important;">Marketing Executive</span>
+                    </div>
+                </div>
+                <p class="mb-0" style="color: #555 !important;">"The service provided was fantastic, and the variety of cakes available is impressive. I highly recommend them!"</p>
+            </div>
+        </div>
+        <div class="bg-light-pink text-light rounded-top p-5 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s" style="background-color: #ffccf2;">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="display-4 text-light mb-0" style="color: hsl(330, 51%, 34%) !important;">Subscribe Our Newsletter</h1>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="position-relative">
+                        <input class="form-control bg-transparent border-light w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email" style="border: 1px solid #ff5c8d !important;">
+                        <button type="button" class="btn btn-dark py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+
+<!-- Add the required scripts below -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        // Initialize Owl Carousel
+        $(".owl-carousel").owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            onChanged: function(event) {
+                // Remove bg-transparent class from all testimonials
+                $(".testimonial-item").removeClass("bg-white");
+                
+                // Add bg-white to the active testimonial
+                var activeIndex = event.item.index;
+                $(".testimonial-item").eq(activeIndex).addClass("bg-white");
+            }
+        });
+    });
+</script>
+
+
+
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Office Address</h4>
+                <p class="mb-2" style="color: hsl(0, 0%, 100%) !important;"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                <p class="mb-2" style="color: hwb(0 100% 0%) !important;"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                <p class="mb-2" style="color: hsl(0, 0%, 100%) !important;"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Quick Links</h4>
+                <a class="btn btn-link text-light" href="">About Us</a>
+                <a class="btn btn-link text-light" href="">Contact Us</a>
+                <a class="btn btn-link text-light" href="">Our Services</a>
+                <a class="btn btn-link text-light" href="">Terms & Condition</a>
+                <a class="btn btn-link text-light" href="">Support</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Our Services</h4>
+                <a class="btn btn-link text-light" href="">Cake Orders</a>
+                <a class="btn btn-link text-light" href="">Custom Cakes</a>
+                <a class="btn btn-link text-light" href="">Gift Combos</a>
+                <a class="btn btn-link text-light" href="">Baking Classes</a>
+                <a class="btn btn-link text-light" href="">Delivery & Shipping</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Photo Gallery</h4>
+                <div class="row g-2">
+                    <div class="col-4">
+                        <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Image">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Image">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Image">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Image">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Image">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright text-light py-4 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a href="#">Chinnu's Bakery</a>, All Right Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

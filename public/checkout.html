@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <!-- Google Fonts for cute font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-image: url('img/checkout-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: #832a57;
+        }
+
+        .checkout-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .checkout-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            width: 70%;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .checkout-box h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .checkout-box input[type="text"], .checkout-box input[type="number"], .checkout-box input[type="email"], .checkout-box textarea, .checkout-box select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .checkout-box button {
+            background-color: #832a57;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .checkout-box button:hover {
+            background-color: #b84a8b;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+            color: #832a57;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="checkout-container">
+        <!-- Logo -->
+        <div class="logo">
+            Chinnu's Bakery
+        </div>
+
+        <!-- Checkout Box -->
+        <div class="checkout-box">
+            <h1>Checkout</h1>
+            <form id="checkoutForm" action="process_checkout.php" method="POST">
+                <input type="text" name="name" placeholder="Full Name" required><br>
+                <input type="text" name="address" placeholder="Shipping Address" required><br>
+                <input type="number" name="phone" placeholder="Phone Number" required><br>
+                <input type="email" name="email" placeholder="Email Address" required><br>
+
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment_method" required>
+                    <option value="COD">Cash on Delivery</option>
+                    <option value="UPI">UPI Payment</option>
+                </select><br>
+
+                <input type="hidden" id="totalAmount" name="total_amount" value="">
+                <input type="hidden" id="cartData" name="cart_data" value="">
+                
+                <div class="error-message" id="error-message"></div>
+                
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Fetch cart data from localStorage
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const errorMessage = document.getElementById('error-message');
+    
+        // Validate cart data
+        if (!Array.isArray(cartItems) || cartItems.length === 0) {
+            errorMessage.textContent = "Your cart is empty. Please add items before proceeding to checkout.";
+            document.querySelector('button[type="submit"]').disabled = true;
+        } else {
+            // Calculate total amount
+            let totalAmount = 0;
+            cartItems.forEach(item => {
+                if (item.price && item.quantity) {
+                    totalAmount += item.price * item.quantity;
+                }
+            });
+    
+            // Populate form fields with dynamic data
+            document.getElementById('totalAmount').value = totalAmount.toFixed(2); // Set total amount
+            document.getElementById('cartData').value = JSON.stringify(cartItems); // Serialize cart data
+        }
+    
+        // Add event listener to form submission
+        const checkoutForm = document.getElementById('checkoutForm');
+        checkoutForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+    
+            const formData = new FormData(checkoutForm);
+            const data = Object.fromEntries(formData.entries());
+    
+            // Send data to the backend
+            try {
+                const response = await fetch('http://localhost:3000/checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+    
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    localStorage.removeItem('cart'); // Clear cart after successful checkout
+                    window.location.href = 'thank_you.html'; // Redirect to a thank-you page
+                } else {
+                    alert(result.message || 'Failed to place order. Please try again.');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Error connecting to the server. Please try again later.');
+            }
+        });
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Chinnu's Bakery - Products</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if the user is logged in
+            const isLoggedIn = localStorage.getItem("isLoggedIn");
+            if (isLoggedIn !== "true") {
+                alert("You must log in first!");
+                window.location.href = "index.html";
+            }
+
+            // Logout functionality
+            const logoutButton = document.getElementById("logout");
+            if (logoutButton) {
+                logoutButton.addEventListener("click", function () {
+                    localStorage.removeItem("isLoggedIn");
+                    alert("Logged out successfully!");
+                    window.location.href = "index.html";
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid top-bar bg-dark text-light px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row gx-0 align-items-center d-none d-lg-flex">
+            <div class="col-lg-6 px-5 text-start">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a class="small" href="#" style="color: #ffb6c1;">Home</a></li>
+                    <li class="breadcrumb-item"><a class="small" href="#" style="color: #ffb6c1;">Career</a></li>
+                    <li class="breadcrumb-item"><a class="small" href="#" style="color: #ffb6c1;">Terms</a></li>
+                    <li class="breadcrumb-item"><a class="small" href="#" style="color: #ffb6c1;">Privacy</a></li>
+                </ol>
+            </div>
+            <div class="col-lg-6 px-5 text-end">
+                <small>Follow us:</small>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn-lg-square text-light border-end rounded-0" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn-lg-square text-light border-end rounded-0" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn-lg-square text-light border-end rounded-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn-lg-square text-light pe-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+            <h1 class="text-light m-0" style="color: #ffb6c1;">Chinnu's Bakery</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav mx-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active" style="color: #ffb6c1;">Home</a>
+                <a href="about.html" class="nav-item nav-link" style="color: #ffb6c1;">About</a>
+                <a href="service.html" class="nav-item nav-link" style="color: #ffb6c1;">Services</a>
+                <a href="product.html" class="nav-item nav-link" style="color: #ffb6c1;">Products</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="color: #ffb6c1;">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="team.html" class="dropdown-item" style="color: #832a57;">Our Team</a>
+                        <a href="testimonial.html" class="dropdown-item" style="color: hsl(330, 51%, 34%)">Testimonial</a>
+                        <a href="404.html" class="dropdown-item" style="color: hsl(330, 51%, 34%)">404 Page</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link" style="color: #ffb6c1;">Contact</a>
+                <a href="#" id="logout" class="nav-item nav-link" style="color: #ffb6c1;">Logout</a>
+            </div>
+            <div class="d-none d-lg-flex">
+                <div class="flex-shrink-0 btn-lg-square border border-light rounded-circle">
+                    <i class="fa fa-phone fa-flip-horizontal text-light"></i>
+                </div>
+                <div class="ps-3">
+                    <small class="text-light mb-0" style="color: #ffb6c1;">Call Us</small>
+                    <p class="text-light fs-5 mb-0" style="color: #ffb6c1;">+012 345 6789</p>
+                </div>
+                <div class="ms-3">
+                    <a href="cart.html" class="btn btn-primary">Cart</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<!-- Navbar End -->
+
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-6 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center pt-5 pb-3">
+            <h1 class="display-4 text-white animated slideInDown mb-3">Products</h1>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+<!-- Products Section Start -->
+<div class="container-xxl py-6" style="background-color: #f9f3f4;">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-6 mb-4" style="color: #832a57;">Discover a World of Sweet Delights</h1>
+        </div>
+
+        <!-- Cakes Category -->
+        <div class="mb-5">
+            <h2 class="text-primary mb-4" style="color: #832a57 !important;">Cakes</h2>
+            <div class="row g-4">
+                <!-- Classic Chocolate Cake -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/cake-1.jpg" alt="Classic Chocolate Cake">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Classic Chocolate Cake</h5>
+                            <p class="text-muted mb-2">550</p>
+                            <p>Rich chocolate cake with layers of fudge.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Funfetti Cake -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/funfetti-cake.jpg" alt="Funfetti Cake">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Funfetti Cake</h5>
+                            <p class="text-muted mb-2">800</p>
+                            <p>Sprinkled with joy and colors.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chocolate Fudge Cake -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/chocolate-fudge-cake.jpg" alt="Chocolate Fudge Cake">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Chocolate Fudge Cake</h5>
+                            <p class="text-muted mb-2">1000</p>
+                            <p>Rich chocolate layers with a smooth fudge topping.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Strawberry Cream Cake -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/strawberry-cream-cake.jpg" alt="Strawberry Cream Cake">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Strawberry Cream Cake</h5>
+                            <p class="text-muted mb-2">1000</p>
+                            <p>Fresh strawberries layered with whipped cream and sponge.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cookies Category -->
+        <div class="mb-5">
+            <h2 class="text-primary mb-4" style="color: #832a57 !important;">Cookies</h2>
+            <div class="row g-4">
+                <!-- Peanut Butter Cookies -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/peanut-butter-cookies.jpg" alt="Peanut Butter Cookies">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Peanut Butter Cookies</h5>
+                            <p class="text-muted mb-2">250</p>
+                            <p>Nutty, soft, and chewy goodness.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chocolate Chip Cookies -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/chocolate-chip-cookies.jpg" alt="Chocolate Chip Cookies">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Chocolate Chip Cookies</h5>
+                            <p class="text-muted mb-2">300</p>
+                            <p>Loaded with gooey chocolate chips.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Oatmeal Raisin Cookies -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/oatmeal-raisin-cookies.jpg" alt="Oatmeal Raisin Cookies">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Oatmeal Raisin Cookies</h5>
+                            <p class="text-muted mb-2">300</p>
+                            <p>Wholesome and chewy, packed with raisins and oats.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Peanut Butter Cookies -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/berry-cheesecake-cookies.jpg" alt="Mixed Berry Cookies">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Berry Cheesecake Cookies</h5>
+                            <p class="text-muted mb-2">400</p>
+                            <p>Incredibly tender Triple Berry Cheesecake Cookies hit the spot when you want that tang of cheesecake and berries with a lot less fuss.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bread Category -->
+        <div class="mb-5">
+            <h2 class="text-primary mb-4" style="color: #832a57 !important;">Bread</h2>
+            <div class="row g-4">
+                <!-- Sourdough Bread -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/sourdough-bread.jpg" alt="Sourdough Bread">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Sourdough Bread</h5>
+                            <p class="text-muted mb-2">250</p>
+                            <p>Artisan sourdough with a tangy twist.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Multigrain Bread -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/multigrain-bread.jpg" alt="Multigrain Bread">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Multigrain Bread</h5>
+                            <p class="text-muted mb-2">300</p>
+                            <p>Healthy and packed with seeds and grains.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pastries Category -->
+        <div class="mb-5">
+            <h2 class="text-primary mb-4" style="color:#832a57 !important;">Pastries</h2>
+            <div class="row g-4">
+                <!-- Croissant -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/croissant.jpg" alt="Croissant">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Croissant</h5>
+                            <p class="text-muted mb-2">120</p>
+                            <p>Flaky, buttery, and perfectly baked.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Danish Pastry -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/danish-pastry.jpg" alt="Danish Pastry">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Danish Pastry</h5>
+                            <p class="text-muted mb-2">200</p>
+                            <p>Sweet and flaky with a creamy filling.</p>
+                            <input type="number" class="form-control mb-2" placeholder="Quantity" min="1" value="1">
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kids Kits Category -->
+        <div class="mb-5">
+            <h2 class="text-primary mb-4" style="color: #832a57 !important;">Kids' Kits</h2>
+            <div class="row g-4">
+                <!-- Unicorn Baking Kit -->
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/unicorn-kit.jpg" alt="Unicorn Baking Kit">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Unicorn Baking Kit</h5>
+                            <p class="text-muted mb-2">1200</p>
+                            <p>Everything you need for magical baking.</p>
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscription Box Category -->
+        <div class="mb-5">
+            <h2 class="text-primary mb-4" style="color: #832a57 !important;">Monthly Subscription Box</h2>
+            <div class="row g-4">
+                <!-- Subscription Box -->
+                <div class="col-lg-6 col-md-8 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-item bg-white rounded overflow-hidden h-100 text-center shadow-sm">
+                        <img class="img-fluid" src="img/monthly-subscription.jpg" alt="Subscription Box">
+                        <div class="p-4">
+                            <h5 class="mb-2" style="color: #832a57;">Monthly Subscription Box</h5>
+                            <p class="text-muted mb-2">2500/month</p>
+                            <p>A curated surprise of our finest treats.</p>
+                            <button class="btn btn-primary w-100 add-to-cart-btn" style="background-color: #832a57; border: none;">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Products Section End -->
+
+<div class="popup" id="popup-message">Item added to cart!</div>
+<script>
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        // Find the parent card element
+        const card = button.closest('.product-item');
+        const title = card.querySelector('h5').textContent; // Product name
+        const quantityInput = card.querySelector('input[type="number"]');
+        const quantity = parseInt(quantityInput.value);
+        const price = parseFloat(card.querySelector('.text-muted').textContent); // Product price
+        const image = card.querySelector('img').src; // Product image
+
+        if (isNaN(quantity) || quantity <= 0) {
+            alert('Please enter a valid quantity.');
+            return;
+        }
+
+        // Fetch the existing cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if the item is already in the cart
+        const existingItem = cart.find(item => item.name === title);
+
+        if (existingItem) {
+            // Update the quantity if the item already exists
+            existingItem.quantity += quantity;
+        } else {
+            // Add a new item to the cart
+            cart.push({ name: title, quantity, price, image });
+        }
+
+        // Save the updated cart back to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Show a popup message
+        const popup = document.getElementById('popup-message');
+        popup.style.display = 'block';
+        popup.textContent = `${quantity} ${title}(s) added to cart!`;
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 2000);
+
+        // Reset the quantity input field
+        quantityInput.value = 1;
+    });
+});
+</script>
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Office Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Photo Gallery</h4>
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright text-light py-4 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                    <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

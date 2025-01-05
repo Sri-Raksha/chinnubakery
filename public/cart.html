@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <!-- Google Fonts for cute font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-image: url('img/cart-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: #832a57;
+        }
+
+        .cart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .cart-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            width: 70%;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .cart-box h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cart-box .cart-item {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-box .cart-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+        }
+
+        .cart-box .cart-item .item-details {
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .cart-box .cart-item .item-price {
+            font-weight: bold;
+            color: #832a57;
+        }
+
+        .cart-box .cart-actions {
+            margin-top: 30px;
+        }
+
+        .cart-box .btn {
+            background-color: #832a57;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .cart-box .btn:hover {
+            background-color: #b84a8b;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+            color: #832a57;
+        }
+
+        .cart-box .quantity-btns {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btns button {
+            background-color: #832a57;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .quantity-btns input {
+            width: 40px;
+            text-align: center;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 0 10px;
+        }
+
+        .remove-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .remove-btn:hover {
+            background-color: #ff6666;
+        }
+
+        .popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #832a57;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cart-container">
+        <div class="logo">
+            Chinnu's Bakery
+        </div>
+
+        <div class="cart-box">
+            <h1>Your Cart</h1>
+            <div id="cartItems">
+                <!-- Dynamic items will appear here -->
+            </div>
+            <div class="cart-item" style="font-size: 18px; font-weight: bold;">
+                <div>Total</div>
+                <div id="totalPrice">$0</div>
+            </div>
+
+            <div class="cart-actions">
+                <button class="btn" onclick="redirectToCheckout()">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="popup-message">Item added to cart!</div>
+
+    <script>
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to update the cart display
+        function updateCartDisplay() {
+            const cartContainer = document.getElementById('cartItems');
+            cartContainer.innerHTML = '';
+
+            cartItems.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.id = 'item' + index;
+
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <p>${item.name}</p>
+                        <div class="quantity-btns">
+                            <button onclick="decreaseQuantity(${index})">-</button>
+                            <input id="item${index}Qty" type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index})">
+                            <button onclick="increaseQuantity(${index})">+</button>
+                        </div>
+                    </div>
+                    <div class="item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                `;
+                cartContainer.appendChild(itemDiv);
+            });
+
+            updateTotal();
+        }
+
+        // Update the total price
+        function updateTotal() {
+            let total = 0;
+            cartItems.forEach(item => {
+                total += item.price * item.quantity;
+            });
+            document.getElementById('totalPrice').innerText = '$' + total.toFixed(2);
+        }
+
+        // Decrease quantity
+        function decreaseQuantity(index) {
+            if (cartItems[index].quantity > 1) {
+                cartItems[index].quantity -= 1;
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                updateCartDisplay();
+            }
+        }
+
+        // Increase quantity
+        function increaseQuantity(index) {
+            cartItems[index].quantity += 1;
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            updateCartDisplay();
+        }
+
+        // Update quantity directly from input
+        function updateQuantity(index) {
+            const quantityInput = document.getElementById('item' + index + 'Qty');
+            const newQuantity = parseInt(quantityInput.value);
+            if (isNaN(newQuantity) || newQuantity < 1) {
+                alert('Invalid quantity!');
+                quantityInput.value = cartItems[index].quantity; // Reset to the previous value
+                return;
+            }
+            cartItems[index].quantity = newQuantity;
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            updateCartDisplay();
+        }
+
+        // Remove item from cart
+        function removeItem(index) {
+            cartItems.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            updateCartDisplay();
+        }
+
+        // Redirect to checkout
+        function redirectToCheckout() {
+            if (cartItems.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            window.location.href = 'checkout.html';
+        }
+
+        // Load cart items on page load
+        window.onload = updateCartDisplay;
+    </script>
+
+</body>
+</html>

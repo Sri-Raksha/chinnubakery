@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinnu's Bakery - Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Include Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('img/background.png'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            animation: backgroundAnimation 10s ease-in-out infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-size: 100%; }
+            50% { background-size: 105%; }
+            100% { background-size: 100%; }
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            width: 380px;
+            transform: translateY(-20px);
+            animation: slideIn 0.6s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .login-container h2 {
+            color: hsl(330, 51%, 34%);
+            text-align: center;
+            font-family: 'Lobster', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            60% { transform: translateY(20px); opacity: 1; }
+            100% { transform: translateY(0); }
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ff5c8d;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .login-container input:focus {
+            border-color: hsl(330, 51%, 34%);
+            box-shadow: 0 0 5px rgba(255, 92, 141, 0.7);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background-color: hsl(330, 51%, 34%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: #ff5c8d;
+            transform: translateY(-4px);
+        }
+
+        .link {
+            text-align: center;
+            text-transform: capitalize;
+            text-decoration: none;
+            color: hsl(330, 51%, 34%);
+            display: block;
+            margin: 30px auto;
+        }
+
+        .link:hover {
+            color: rgba(255, 92, 141, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Register to explore more sweetness</h2>
+    <form id="registerForm">
+        <input type="text" id="name" class="form-control" placeholder="Name" required>
+        <input type="email" id="email" class="form-control" placeholder="Email" required>
+        <input type="password" id="password" class="form-control" placeholder="Password" required>
+        <button type="submit" class="btn-login">Register</button>
+        <div class="link">
+            <a href="login.html" class="link">Have an account? Click here.</a>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Register user
+    document.getElementById("registerForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        try {
+            const response = await fetch("http://localhost:5005/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name, email, password }),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert(result.message); // Show success message
+                window.location.href = "login.html"; // Redirect to login page
+            } else {
+                alert(result.message); // Show error message
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Something went wrong. Please try again.");
+        }
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
