@@ -5,10 +5,13 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const path = require("path");
 
+// Initialize app and middleware
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static("public")); // Serve frontend files
 
 // Environment variables
 const PORT = process.env.PORT || 5005;
@@ -22,78 +25,87 @@ if (!JWT_SECRET || !MONGO_URI) {
 
 // MongoDB connection
 mongoose
-    .connect(MONGO_URI)
+    .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((err) => {
         console.error("Error connecting to MongoDB Atlas:", err);
-        process.exit(1); // Exit the app on connection failure
+        process.exit(1);
     });
 
-// User model
+// Import User model
 const User = require("./models/User");
 
-// API Routes
+// Serve the index.html file at the root
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Register a new user
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
+
     if (!name || !email || !password) {
         return res.status(400).json({ message: "All fields are required." });
     }
+
     try {
+        // Check if the user already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: "User already exists." });
         }
+
+        // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create a new user
         const newUser = new User({ name, email, password: hashedPassword });
+
+        // Save the user to the database
         await newUser.save();
+
         res.status(201).json({ message: "User registered successfully!" });
     } catch (error) {
+        console.error("Error during registration:", error);
         res.status(500).json({ message: "Error registering user.", error });
     }
 });
 
+// Login a user
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
-    // Validate request
     if (!email || !password) {
         return res.status(400).json({ message: "All fields are required." });
     }
 
     try {
-        // Check if the user exists
+        // Find user by email
         const user = await User.findOne({ email });
+
         if (!user) {
-            console.error("User not found:", email);
             return res.status(400).json({ message: "Invalid email or password." });
         }
 
-        // Check if the password matches
+        // Compare the provided password with the hashed password in the database
         const isMatch = await bcrypt.compare(password, user.password);
+
         if (!isMatch) {
-            console.error("Password mismatch for user:", email);
             return res.status(400).json({ message: "Invalid email or password." });
         }
 
-        // Generate JWT token
+        // Generate a JWT token if login is successful
         const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
-
-        // Send response
         res.status(200).json({ message: "Login successful", token });
     } catch (error) {
-        console.error("Error during login:", error); // Log the error for debugging
+        console.error("Error during login:", error);
         res.status(500).json({ message: "Error logging in.", error });
     }
 });
 
-
-
-// Serve static files
-app.use(express.static("public"));
-
-// Fallback route for frontend
-app.get("*", (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
+// Handle all undefined routes
+app.use((req, res) => {
+    res.status(404).json({ message: "Route not found." });
 });
 
 // Start the server
